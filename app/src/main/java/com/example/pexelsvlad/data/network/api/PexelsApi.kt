@@ -20,10 +20,10 @@ interface PexelsApi {
         @Query("per_page") perPage: Int = PAGE_SIZE_PHOTOS
     ): RestPhotoSet
 
-    @GET("/v1/photos/:id")
+    @GET("/v1/photos/{id}")
     suspend fun getSpecificPhoto(
+        @Path("id") id: String,
         @Header("Authorization") authorizationToken: String = AUTHORIZATION_TOKEN,
-        @Path("id") id: String
     ): RestPhoto
 
     @GET("/v1/collections/featured")

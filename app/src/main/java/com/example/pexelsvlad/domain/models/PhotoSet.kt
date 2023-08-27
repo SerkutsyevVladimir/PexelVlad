@@ -6,7 +6,7 @@ import com.google.gson.annotations.SerializedName
 class PhotoSet(
     val page: String? = null,
     val perPage: String? = null,
-    val photos: List<RestPhoto>? = emptyList(),
+    val photos: List<Photo> = emptyList(),
     val totalResults: String? = null,
     val nextPage: String? = null
 )
