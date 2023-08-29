@@ -5,8 +5,8 @@
     android:layout_height="match_parent">
 
     <SearchView
-        style="@style/Base.Widget.AppCompat.SearchView.MySearchView"
         android:id="@+id/searchBar"
+        style="@style/Base.Widget.AppCompat.SearchView.MySearchView"
         android:iconifiedByDefault="false"
         android:queryBackground="@android:color/transparent"
         android:queryHint="@string/search"
