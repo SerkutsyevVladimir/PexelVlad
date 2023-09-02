@@ -19,9 +19,10 @@ class RestCollectionRepositoryImpl @Inject constructor(
         return@withContext restCollectionsSet.let { restCollectionsSetMapper.map(it) }
     }
 
-    override suspend fun getFeaturedCollectionsList(): List<Collection> =
-        withContext(Dispatchers.IO) {
+    override suspend fun getFeaturedCollectionsList(): Result<List<Collection>> {
             val collectionsSet = getCollectionsSet()
-            return@withContext collectionsSet.collections
+            return kotlin.runCatching {
+                collectionsSet.collections
+            }
         }
 }

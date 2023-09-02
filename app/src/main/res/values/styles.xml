@@ -11,5 +11,8 @@
         <item name="android:textColorHint">@color/searchView_hint</item>
     </style>
 
-
+    <style name="MyActionBar" parent="Widget.AppCompat.Light.ActionBar">
+        <item name="android:background">@color/white</item>
+        <item name="textFillColor">@color/black</item>
+    </style>
 </resources>

@@ -4,7 +4,6 @@ import com.example.pexelsvlad.data.network.api.PexelsApi
 import com.example.pexelsvlad.data.network.models.RestPhoto
 import com.example.pexelsvlad.domain.mappers.rest.RestPhotoMapper
 import com.example.pexelsvlad.domain.mappers.rest.RestPhotoSetMapper
-import com.example.pexelsvlad.domain.mappers.rest.RestPhotoSrcMapper
 import com.example.pexelsvlad.domain.models.Photo
 import com.example.pexelsvlad.domain.models.PhotoSet
 import com.example.pexelsvlad.domain.repository.PhotoRepository
@@ -23,13 +22,17 @@ class RestPhotoRepositoryImpl @Inject constructor(
         return@withContext restCuratedPhotoSet.let { restPhotoSetMapper.map(it) }
     }
 
-    override suspend fun getCuratedPhotosList(): List<Photo> = withContext(Dispatchers.IO){
+    override suspend fun getCuratedPhotosList(): Result<List<Photo>> {
         val curatedPhotoSet = getCuratedPhotoSet()
-        return@withContext curatedPhotoSet.photos
+        return kotlin.runCatching{
+            curatedPhotoSet.photos
+        }
     }
 
-    override suspend fun getSpecificPhoto(id: String): Photo = withContext(Dispatchers.IO) {
-        return@withContext pexelsApi.getSpecificPhoto(id)
-            .let<RestPhoto, Photo> { restPhotoMapper.map(it) }
+    override suspend fun getSpecificPhoto(id: String): Result<Photo> {
+        return runCatching {
+            pexelsApi.getSpecificPhoto(id)
+                .let<RestPhoto, Photo> { restPhotoMapper.map(it) }
+        }
     }
 }

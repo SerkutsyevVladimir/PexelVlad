@@ -8,7 +8,11 @@ import javax.inject.Inject
 class LoadCuratedPhotosUseCase @Inject constructor(
     @Rest private val restPhotoRepositoryImpl: PhotoRepository
 ) {
-    suspend fun loadCuratedPhotos(): List<Photo> {
+//    suspend fun loadCuratedPhotos(): List<Photo> {
+//        return restPhotoRepositoryImpl.getCuratedPhotosList()
+//    }
+
+    suspend operator fun invoke(): Result<List<Photo>> {
         return restPhotoRepositoryImpl.getCuratedPhotosList()
     }
 }

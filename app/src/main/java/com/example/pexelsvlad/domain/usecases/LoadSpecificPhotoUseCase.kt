@@ -8,7 +8,11 @@ import javax.inject.Inject
 class LoadSpecificPhotoUseCase @Inject constructor(
     @Rest private val restPhotoRepositoryImpl: PhotoRepository
 ) {
-    suspend fun loadSpecificPhoto(id: String): Photo{
-       return restPhotoRepositoryImpl.getSpecificPhoto(id)
+//    suspend fun loadSpecificPhoto(id: String): Photo{
+//       return restPhotoRepositoryImpl.getSpecificPhoto(id)
+//    }
+
+    suspend operator fun invoke(id: String): Result<Photo>{
+        return restPhotoRepositoryImpl.getSpecificPhoto(id)
     }
 }

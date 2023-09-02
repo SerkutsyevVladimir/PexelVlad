@@ -8,7 +8,12 @@ import javax.inject.Inject
 class LoadFeaturedCollectionsUseCase @Inject constructor(
     @Rest private val restCollectionRepositoryImpl: CollectionRepository
 ) {
-    suspend fun loadfeaturedcollections(): List<Collection> {
+//    suspend fun loadfeaturedcollections(): List<Collection> {
+//        return restCollectionRepositoryImpl.getFeaturedCollectionsList()
+//    }
+
+    suspend operator fun invoke(): Result<List<Collection>> {
         return restCollectionRepositoryImpl.getFeaturedCollectionsList()
     }
+
 }

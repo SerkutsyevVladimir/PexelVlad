@@ -6,7 +6,7 @@ import com.example.pexelsvlad.domain.models.PhotoSet
 interface PhotoRepository {
     suspend fun getCuratedPhotoSet(): PhotoSet
 
-    suspend fun getCuratedPhotosList(): List<Photo>
+    suspend fun getCuratedPhotosList(): Result<List<Photo>>
 
-    suspend fun getSpecificPhoto(id: String): Photo
+    suspend fun getSpecificPhoto(id: String): Result<Photo>
 }

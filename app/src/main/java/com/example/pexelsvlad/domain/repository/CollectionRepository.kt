@@ -6,5 +6,5 @@ import com.example.pexelsvlad.domain.models.CollectionsSet
 interface CollectionRepository {
     suspend fun getCollectionsSet(): CollectionsSet
 
-    suspend fun  getFeaturedCollectionsList(): List<Collection>
+    suspend fun  getFeaturedCollectionsList(): Result<List<Collection>>
 }
