@@ -1,6 +1,8 @@
 package com.example.pexelsvlad.di
 
 import com.example.pexelsvlad.data.network.api.PexelsApi
+import com.example.pexelsvlad.domain.mappers.db.DBPhotoMapper
+import com.example.pexelsvlad.domain.mappers.db.PhotoMapper
 import com.example.pexelsvlad.domain.mappers.rest.RestCollectionMapper
 import com.example.pexelsvlad.domain.mappers.rest.RestCollectionsSetMapper
 import com.example.pexelsvlad.domain.mappers.rest.RestPhotoMapper
@@ -53,6 +55,18 @@ class AppModule {
         restPhotoMapper: RestPhotoMapper
     ): RestPhotoSetMapper{
         return RestPhotoSetMapper(restPhotoMapper)
+    }
+
+    @Provides
+    @Singleton
+    fun provideDBPhotoMapper(): DBPhotoMapper{
+        return DBPhotoMapper()
+    }
+
+    @Provides
+    @Singleton
+    fun providePhotoMapper(): PhotoMapper {
+        return PhotoMapper()
     }
 
 

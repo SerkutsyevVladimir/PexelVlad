@@ -7,7 +7,7 @@ data class RestPhoto(
     @SerializedName("width") val width: String? = null,
     @SerializedName("height") val height: String? = null,
     @SerializedName("url") val url: String? = null,
-    @SerializedName("photographer") val photographer: String? = null,
+    @SerializedName("photographer") val photographer: String,
     @SerializedName("photographer_url") val photographerUrl: String? = null,
     @SerializedName("photographer_id") val photographerId: String? = null,
     @SerializedName("avg_color") val avgColor: String? = null,

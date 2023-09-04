@@ -14,7 +14,7 @@ data class DBPhoto(
     @ColumnInfo(name = "width") val width: String? = null,
     @ColumnInfo(name = "height") val height: String? = null,
     @ColumnInfo(name = "url") val url: String? = null,
-    @ColumnInfo(name = "photographer") val photographer: String? = null,
+    @ColumnInfo(name = "photographer") val photographer: String,
     @ColumnInfo(name = "photographerUrl") val photographerUrl: String? = null,
     @ColumnInfo(name = "photographerId") val photographerId: String? = null,
     @ColumnInfo(name = "avg_color") val avgColor: String? = null,

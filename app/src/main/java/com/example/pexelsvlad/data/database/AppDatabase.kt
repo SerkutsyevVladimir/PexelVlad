@@ -7,7 +7,7 @@ import com.example.pexelsvlad.data.database.models.DBPhoto
 
 
 @Database(
-    version = 1,
+    version = 2,
     entities = [
         DBPhoto::class
     ]

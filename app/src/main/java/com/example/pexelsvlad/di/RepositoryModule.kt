@@ -1,9 +1,15 @@
 package com.example.pexelsvlad.di
 
+import com.example.pexelsvlad.data.database.dao.DBPhotoDao
 import com.example.pexelsvlad.data.network.api.PexelsApi
+import com.example.pexelsvlad.data.repository.db.DBPhotoRepository
+import com.example.pexelsvlad.data.repository.db.DBPhotoRepositoryImpl
 import com.example.pexelsvlad.data.repository.rest.RestCollectionRepositoryImpl
 import com.example.pexelsvlad.data.repository.rest.RestPhotoRepositoryImpl
+import com.example.pexelsvlad.di.qualifier.DB
 import com.example.pexelsvlad.di.qualifier.Rest
+import com.example.pexelsvlad.domain.mappers.db.DBPhotoMapper
+import com.example.pexelsvlad.domain.mappers.db.PhotoMapper
 import com.example.pexelsvlad.domain.mappers.rest.RestCollectionsSetMapper
 import com.example.pexelsvlad.domain.mappers.rest.RestPhotoMapper
 import com.example.pexelsvlad.domain.mappers.rest.RestPhotoSetMapper
@@ -40,6 +46,17 @@ class RepositoryModule {
         restPhotoSetMapper: RestPhotoSetMapper
     ): PhotoRepository{
         return RestPhotoRepositoryImpl(pexelsApi, restPhotoMapper, restPhotoSetMapper)
+    }
+
+    @Provides
+    @Singleton
+    @DB
+    fun provideDBPhotoRepository(
+        photoDao: DBPhotoDao,
+        dbPhotoMapper: DBPhotoMapper,
+        photoMapper: PhotoMapper
+    ): DBPhotoRepository{
+        return DBPhotoRepositoryImpl(photoDao, dbPhotoMapper, photoMapper)
     }
 
 }

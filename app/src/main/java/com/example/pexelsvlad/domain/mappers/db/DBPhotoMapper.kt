@@ -45,7 +45,7 @@ class PhotoMapper : Mapper<Photo, DBPhoto> {
             photographerId = input.photographerId,
             avgColor = input.avgColor,
             src = input.src.original,
-            liked = input.liked,
+            liked = true,
             alt = input.alt
         )
     }

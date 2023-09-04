@@ -2,13 +2,33 @@
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/navigation_bookmarks">
+    android:id="@+id/navigation_bookmarks"
+    app:startDestination="@id/bookmarksFragment">
 
     <fragment
         android:id="@+id/bookmarksFragment"
+        android:name="com.example.pexelsvlad.fragments.BookmarksFragment"
+        android:label="fragment_photo_details"
+        tools:layout="@layout/fragment_bookmarks">
+        <action
+            android:id="@+id/action_bookmarksFragment_to_photoDetailsFragment"
+            app:destination="@id/photoDetailsFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/photoDetailsFragment"
         android:name="com.example.pexelsvlad.fragments.PhotoDetailsFragment"
         android:label="fragment_photo_details"
         tools:layout="@layout/fragment_photo_details">
+        <argument
+            android:name="id"
+            app:argType="string" />
+        <argument
+            android:name="author"
+            app:argType="string" />
+        <argument
+            android:name="isRemote"
+            app:argType="boolean" />
     </fragment>
+
 
 </navigation>

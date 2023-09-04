@@ -9,7 +9,6 @@ class LoadSpecificBookmarkUseCase @Inject constructor(
     @DB private val dbPhotoRepositoryImpl: DBPhotoRepository
 ) {
 
-
     suspend operator fun invoke(id: String): Result<Photo>{
        return dbPhotoRepositoryImpl.getSpecificPhoto(id)
     }

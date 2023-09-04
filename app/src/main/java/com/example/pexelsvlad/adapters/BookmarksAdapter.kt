@@ -4,24 +4,24 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
-import com.example.pexelsvlad.databinding.CuratedItemBinding
+import com.example.pexelsvlad.databinding.BookmarksItemBinding
 import com.example.pexelsvlad.domain.models.Photo
 
-class CuratedPhotosAdapter(
+class BookmarksAdapter(
     private val onUserClicked: (Photo) -> Unit
-) : ListAdapter<Photo, CuratedPhotosViewHolder>(DIFF_UTIL) {
+) : ListAdapter<Photo, BookmarksViewHolder>(DIFF_UTIL) {
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CuratedPhotosViewHolder {
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): BookmarksViewHolder {
         val layoutInflater = LayoutInflater.from(parent.context)
-        return CuratedPhotosViewHolder(
-            binding = CuratedItemBinding.inflate(layoutInflater, parent, false),
+        return BookmarksViewHolder(
+            binding = BookmarksItemBinding.inflate(layoutInflater, parent, false),
             onUserClicked = onUserClicked
         )
     }
 
-    override fun onBindViewHolder(holder: CuratedPhotosViewHolder, position: Int) {
-        val photo = currentList[position]
-        holder.bind(photo)
+    override fun onBindViewHolder(holder: BookmarksViewHolder, position: Int) {
+        val bookmark = currentList[position]
+        holder.bind(bookmark)
     }
 
     companion object {
@@ -35,4 +35,8 @@ class CuratedPhotosAdapter(
             }
         }
     }
+
+
+
+
 }

@@ -28,7 +28,7 @@ class CuratedPhotosFragment : Fragment() {
     private val viewModel: CuratedPhotosViewModel by viewModels()
 
     private val verticalAdapter = CuratedPhotosAdapter{
-        findNavController().navigate(CuratedPhotosFragmentDirections.actionCuratedPhotosFragmentToPhotoDetailsFragment(it.id))
+        findNavController().navigate(CuratedPhotosFragmentDirections.actionCuratedPhotosFragmentToPhotoDetailsFragment(it.id,it.photographer,true))
     }
 
     private val horizontalAdapter = CollectionsAdapter{

@@ -7,7 +7,7 @@ data class Photo(
     val width: String? = null,
     val height: String? = null,
     val url: String? = null,
-    val photographer: String? = null,
+    val photographer: String,
     val photographerUrl: String? = null,
     val photographerId: String? = null,
     val avgColor: String? = null,

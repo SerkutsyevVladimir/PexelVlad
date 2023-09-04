@@ -2,9 +2,11 @@ package com.example.pexelsvlad.extensions
 
 
 import android.view.View
+import android.view.ViewGroup
 import android.widget.TextView
 import androidx.appcompat.app.ActionBar
 import androidx.appcompat.app.AppCompatActivity
+import androidx.cardview.widget.CardView
 import androidx.core.view.isInvisible
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
@@ -47,8 +49,14 @@ private fun Fragment.configureCustomActionBar(
 ) {
     val titleView = customView.findViewById<TextView>(R.id.actionBarTitle)
     val buttonView = customView.findViewById<View>(R.id.backArrow)
+    val backButtonViewGroup = customView.findViewById<ViewGroup>(R.id.backButton)
+    val backButtonView = customView.findViewById<CardView>(R.id.backButtonCardView)
     buttonView.isInvisible = !hasBackBottom
     titleView.text = title
+    if (!hasBackBottom){
+       backButtonViewGroup.setBackgroundColor(resources.getColor(R.color.white))
+        backButtonView.setCardElevation(0F)
+    }
     buttonView.setOnClickListener {
         findNavController().popBackStack()
     }
